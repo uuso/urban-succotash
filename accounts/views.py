@@ -51,8 +51,9 @@ def register(request):
 			if settings.AVATAR_SITE:
 				Profile.objects.create(user = new_user, avatar = ImageFieldFile(instance=None, field=FileField(), name='user_avatars/default.png'))
 			else:
-				Profile.objects.create(user = new_user, field=FileField(), name='user_avatars/default.png')
-
+				# Profile.objects.create(user = new_user, field=FileField(), name='user_avatars/default.png')
+				Profile.objects.create(user = new_user)
+				
 # from django.contrib.auth.models import User
 # from django.db.models.fields.files import ImageFieldFile, FileField
 # from accounts.forms import Profile
