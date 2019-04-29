@@ -117,6 +117,7 @@ class TaskExportView(LoginRequiredMixin, View):
         return body
 
     def post(self, request, *args, **kwargs):
+        send_mail("test", "body", settings.EMAIL_HOST_USER, [request.user.email])
         form = TodoItemExportForm(request.POST)
         if form.is_valid():
             email = request.user.email
